@@ -88,7 +88,7 @@ def main():
 
   # Initialize the corresponding driver of SU2, this includes solver preprocessing
   try:
-    SU2Driver = pysu2ad.CDiscAdjSinglezoneDriver(options.filename, options.nZone, options.nDim, comm);
+    SU2Driver = pysu2ad.CDiscAdjSinglezoneDriver(options.filename, options.nZone, comm);
   except TypeError as exception:
     print('A TypeError occured in pysu2.CDriver : ',exception)
     if options.with_MPI == True:
@@ -170,7 +170,7 @@ def main():
 
   # Initialize the error estimation driver
   try:
-    SU2Error = pysu2ad.CErrorEstimationDriver(SU2Driver, options.nZone, options.nDim, comm);
+    SU2Error = pysu2ad.CErrorEstimationDriver(SU2Driver, options.nZone, comm);
   except TypeError as exception:
     print('A TypeError occured in pysu2.CDriver : ',exception)
     if options.with_MPI == True:
